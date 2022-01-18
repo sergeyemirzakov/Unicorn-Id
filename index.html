@@ -5,6 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Slackey&display=swap"
+      rel="stylesheet"
+    />
     <title>Unicorn Id</title>
     <script defer src="script.js"></script>
   </head>
@@ -12,9 +18,10 @@
     <div id="app">
       <div class="container">
         <div class="title">
-          <h1>Unique Identifier Generator</h1>
+          <h1>Unicorn Id</h1>
+          <h4>Unique Identifier Generator</h4>
         </div>
-        <p>
+        <p class="description">
           Hello. <br />
           Here You can get a unique identifier for your projects.If it is necessary you
           can change default values. But be carefuly. You cannot set a value greater than
@@ -22,7 +29,38 @@
           characters divided into 3 separate groups.
         </p>
 
-        <button class="generate">Generate ID</button>
+        <form action="">
+          <div class="form_element">
+            <label for="">Default Value:</label>
+            <input type="number" value="15" min="3" max="50" />
+          </div>
+          <div class="form_element">
+            <label for="">Separator:</label>
+            <select size="1">
+              <option value="-">Dash -</option>
+              <option value="_">Underscore _</option>
+            </select>
+          </div>
+          <div class="form_element">
+            <label for="">Separator By Symbols:</label>
+            <select class="test" size="1">
+              <option value="0">0</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option selected value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+            </select>
+          </div>
+        </form>
+
+        <button class="btn generate">Generate ID</button>
+
+        <div class="yourId">
+          <input type="text" value="Your ID will be here" class="inputIdValue" />
+          <button class="btn copy_id">Copy Id</button>
+        </div>
+
         <div class="unicId"></div>
       </div>
     </div>

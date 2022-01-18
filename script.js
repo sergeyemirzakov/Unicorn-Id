@@ -5,6 +5,8 @@ const userSetting = {
   amountOfSymbolbs: null,
   lengthString: null,
 };
+const copyValueBtn = document.querySelector('.copy_id');
+const inputIdValue = document.querySelector('#inputIdValue');
 
 const getRandomSymbol = (min = 48, max = 122) => {
   min = Math.ceil(min);
@@ -36,13 +38,21 @@ const resultedString = (s = '-', i = 15, l = 5) => {
   }
 
   const lengthSeparate = new RegExp('.{1,' + l + '}', 'g');
-  unicId.innerHTML = generateId(i).match(lengthSeparate).join(s);
+  // unicId.innerHTML = generateId(i).match(lengthSeparate).join(s);
+  inputIdValue.value = generateId(i).match(lengthSeparate).join(s);
 
   return generateId(i).match(lengthSeparate).join(s);
 };
 
 getInp.addEventListener('click', () => {
   resultedString('_', 15, 5);
+});
+
+copyValueBtn.addEventListener('click', () => {
+  inputIdValue.select();
+  document.execCommand('copy');
+
+  alert('Copied the text: ' + inputIdValue.value);
 });
 
 // console.log(String.fromCharCode(97, 122)); // Range of Low register
