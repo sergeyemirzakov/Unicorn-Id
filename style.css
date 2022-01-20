@@ -29,9 +29,7 @@ body {
   padding: 0 20px;
 }
 
-.title h1 {
-  color: #876aff;
-  color: #12d1bf;
+.app__title h1 {
   color: #03b7c9;
   font-size: 32px;
   padding-top: 20px;
@@ -53,7 +51,7 @@ body {
   cursor: pointer;
   color: white;
   border-radius: 5px;
-  margin-top: 20px;
+  margin: 20px 0;
   transition: background-color 0.2s;
 }
 
@@ -61,7 +59,7 @@ body {
   background-color: #12d1bf;
 }
 
-.form_element {
+.form__element {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -71,8 +69,8 @@ body {
   border-radius: 5px;
 }
 
-.form_element label + * {
-  padding: 10px;
+.form__element label + * {
+  padding: 7px;
   border: 1px solid #03b7c9;
   border-radius: 5px;
 }
@@ -85,17 +83,28 @@ input::-webkit-inner-spin-button {
 .yourId {
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
+  flex-direction: column;
+  margin-top: 20px;
 }
 
-.inputIdValue {
-  width: 70%;
+.id__field {
   padding: 10px;
-  border: 1px solid #03b7c9;
-  border-radius: 5px;
+  border: transparent;
+  background-color: transparent;
+  font-size: 20px;
+  resize: none;
+}
+
+.inputIdValue:focus {
+  outline: none;
 }
 
 .copy_id {
   padding: 11px 30px;
   margin: 0;
+}
+
+.copy_id:disabled {
+  background-color: #afafaf;
+  cursor: not-allowed;
 }

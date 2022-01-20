@@ -1,4 +1,4 @@
-const getInp = document.querySelector('button');
+const getInp = document.querySelector('.btn__trigger');
 const unicId = document.querySelector('.unicId');
 const userSetting = {
   separate: null,
@@ -6,7 +6,17 @@ const userSetting = {
   lengthString: null,
 };
 const copyValueBtn = document.querySelector('.copy_id');
-const inputIdValue = document.querySelector('#inputIdValue');
+const inputIdValue = document.querySelector('.id__field');
+const defaultValue = 'Your Id will be Here';
+inputIdValue.value = defaultValue;
+
+const checkValueInInput = () => {
+  inputIdValue.value === defaultValue
+    ? (copyValueBtn.disabled = true)
+    : (copyValueBtn.disabled = false);
+};
+
+checkValueInInput();
 
 const getRandomSymbol = (min = 48, max = 122) => {
   min = Math.ceil(min);
@@ -45,7 +55,8 @@ const resultedString = (s = '-', i = 15, l = 5) => {
 };
 
 getInp.addEventListener('click', () => {
-  resultedString('_', 15, 5);
+  resultedString('-', 50, 5);
+  checkValueInInput();
 });
 
 copyValueBtn.addEventListener('click', () => {

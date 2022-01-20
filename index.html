@@ -17,11 +17,11 @@
   <body>
     <div id="app">
       <div class="container">
-        <div class="title">
-          <h1>Unicorn Id</h1>
+        <div class="app__title">
+          <h1>Unicorn <span style="color: sandybrown">Id</span></h1>
           <h4>Unique Identifier Generator</h4>
         </div>
-        <p class="description">
+        <p class="app__description">
           Hello. <br />
           Here You can get a unique identifier for your projects.If it is necessary you
           can change default values. But be carefuly. You cannot set a value greater than
@@ -29,21 +29,21 @@
           characters divided into 3 separate groups.
         </p>
 
-        <form action="">
-          <div class="form_element">
+        <form class="app__form" action="">
+          <div class="form__element">
             <label for="">Default Value:</label>
             <input type="number" value="15" min="3" max="50" />
           </div>
-          <div class="form_element">
+          <div class="form__element">
             <label for="">Separator:</label>
             <select size="1">
               <option value="-">Dash -</option>
               <option value="_">Underscore _</option>
             </select>
           </div>
-          <div class="form_element">
+          <div class="form__element">
             <label for="">Separator By Symbols:</label>
-            <select class="test" size="1">
+            <select size="1">
               <option value="0">0</option>
               <option value="3">3</option>
               <option value="4">4</option>
@@ -54,10 +54,20 @@
           </div>
         </form>
 
-        <button class="btn generate">Generate ID</button>
+        <button class="btn btn__trigger">Generate ID</button>
 
-        <div class="yourId">
-          <input type="text" value="Your ID will be here" class="inputIdValue" />
+        <div class="app__id-field">
+          <textarea
+            placeholder="1"
+            class="id__field"
+            disabled
+            name=""
+            id=""
+            cols="30"
+            rows="2"
+            name="id__field"
+          >
+          </textarea>
           <button class="btn copy_id">Copy Id</button>
         </div>
 
