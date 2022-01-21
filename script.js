@@ -1,13 +1,29 @@
 const getInp = document.querySelector('.btn__trigger');
 const unicId = document.querySelector('.unicId');
-const userSetting = {
-  separate: null,
-  amountOfSymbolbs: null,
-  lengthString: null,
-};
 const copyValueBtn = document.querySelector('.copy_id');
 const inputIdValue = document.querySelector('.id__field');
 const defaultValue = 'Your Id will be Here';
+const formInputValue = document.querySelector('.form__element-input');
+const formSelectValue = document.querySelector('.form__element-select');
+const formSelectValue2 = document.querySelector('.form__element-select');
+const userSetting = {
+  lengthString: formInputValue.value,
+  separate: formSelectValue.value,
+  amountOfSymbolbs: formSelectValue2.value,
+};
+
+formInputValue.addEventListener('change', (e) => {
+  userSetting.lengthString = e.target.value;
+});
+
+formSelectValue.addEventListener('change', (e) => {
+  userSetting.separate = e.target.value;
+});
+
+formSelectValue2.addEventListener('change', (e) => {
+  userSetting.amountOfSymbolbs = e.target.value;
+});
+
 inputIdValue.value = defaultValue;
 
 const checkValueInInput = () => {
@@ -48,7 +64,6 @@ const resultedString = (s = '-', i = 15, l = 5) => {
   }
 
   const lengthSeparate = new RegExp('.{1,' + l + '}', 'g');
-  // unicId.innerHTML = generateId(i).match(lengthSeparate).join(s);
   inputIdValue.value = generateId(i).match(lengthSeparate).join(s);
 
   return generateId(i).match(lengthSeparate).join(s);
@@ -56,6 +71,7 @@ const resultedString = (s = '-', i = 15, l = 5) => {
 
 getInp.addEventListener('click', () => {
   resultedString('-', 50, 5);
+  console.log(userSetting);
   checkValueInInput();
 });
 
