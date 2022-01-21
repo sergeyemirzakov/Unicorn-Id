@@ -5,15 +5,15 @@ const inputIdValue = document.querySelector('.id__field');
 const defaultValue = 'Your Id will be Here';
 const formInputValue = document.querySelector('.form__element-input');
 const formSelectValue = document.querySelector('.form__element-select');
-const formSelectValue2 = document.querySelector('.form__element-select');
+const formSelectValue2 = document.querySelector('.form__element-select2');
 const userSetting = {
-  lengthString: formInputValue.value,
+  amountOfSymbolbs: formInputValue.value,
   separate: formSelectValue.value,
-  amountOfSymbolbs: formSelectValue2.value,
+  lengthString: formSelectValue2.value,
 };
 
 formInputValue.addEventListener('change', (e) => {
-  userSetting.lengthString = e.target.value;
+  userSetting.amountOfSymbolbs = e.target.value;
 });
 
 formSelectValue.addEventListener('change', (e) => {
@@ -21,7 +21,7 @@ formSelectValue.addEventListener('change', (e) => {
 });
 
 formSelectValue2.addEventListener('change', (e) => {
-  userSetting.amountOfSymbolbs = e.target.value;
+  userSetting.lengthString = e.target.value;
 });
 
 inputIdValue.value = defaultValue;
@@ -70,7 +70,11 @@ const resultedString = (s = '-', i = 15, l = 5) => {
 };
 
 getInp.addEventListener('click', () => {
-  resultedString('-', 50, 5);
+  resultedString(
+    userSetting.separate,
+    +userSetting.amountOfSymbolbs,
+    +userSetting.lengthString,
+  );
   console.log(userSetting);
   checkValueInInput();
 });
@@ -81,7 +85,3 @@ copyValueBtn.addEventListener('click', () => {
 
   alert('Copied the text: ' + inputIdValue.value);
 });
-
-// console.log(String.fromCharCode(97, 122)); // Range of Low register
-// console.log(String.fromCharCode(65, 90)); // Range of High register
-// console.log(String.fromCharCode(48, 57)); // Range of Numbers
